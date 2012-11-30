@@ -11,7 +11,7 @@ $(document).ready(function() {
     }
 
     if (typeof(window.localStorage) === "object") {
-      var json = window.localStorage.hawAiGradeCalculator || "{}";
+      var json = window.localStorage.hawWiGradeCalculator || "{}";
       var grades = JSON.parse(json);
       var course = $(this).parent().parent().parent().attr("id");
       if ($(this).hasClass("selected")) {
@@ -19,7 +19,7 @@ $(document).ready(function() {
       } else {
         delete grades[course];
       }
-      window.localStorage.setItem("hawAiGradeCalculator", JSON.stringify(grades));
+      window.localStorage.setItem("hawWiGradeCalculator", JSON.stringify(grades));
     }
 
     calculate();
@@ -50,9 +50,9 @@ $(document).ready(function() {
 
   // pre-select remembered grades
   if (typeof(window.localStorage) === "object") {
-    var json = window.localStorage.getItem("hawAiGradeCalculator");
+    var json = window.localStorage.getItem("hawWiGradeCalculator");
     if (json !== null) {
-      var grades = JSON.parse(window.localStorage.getItem("hawAiGradeCalculator"));
+      var grades = JSON.parse(window.localStorage.getItem("hawWiGradeCalculator"));
       for (var course in grades) {
         if (grades.hasOwnProperty(course)) {
           var grade = parseInt(grades[course], 10);
